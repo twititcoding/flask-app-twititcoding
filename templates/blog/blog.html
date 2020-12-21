@@ -1,0 +1,85 @@
+{% extends "Base.html" %}
+{% block judul %}
+blog
+{% endblock %}
+
+{% block konten %}
+
+
+<div class="card mt-4 ">
+    <div class="card-header">
+        <B>INPUT DATA BARANG</B>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+
+                <!-- input data -->
+
+                <form action="/blog" method="POST">
+
+                    <div class=" mb-1">
+                        <label for="Namabarang" class="form-label "><B>Nama Barang</B></label>
+                        <input type="text" class="form-control" placeholder="Masukan Nama Barang" name="namabarang">
+
+                    </div>
+                    <div class="mb-1">
+                        <label for="Jumlahbarang" class="form-label"><B>Jumlah Barang</B></label>
+                        <input type="text" class="form-control" placeholder="Jumlah Barang" name="jumlahbarang">
+                    </div>
+                    <div class="mb-1">
+                        <label for="Hargabarang" class="form-label"><B>Harga Barang</B></label>
+                        <input type="text" id="rupiah" class="form-control" placeholder="Rp:000.000.00"
+                            name="hargabarang">
+                    </div>
+                    <input class="btn btn-primary mt-3" type="submit" value="Submit">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- shoe data -->
+<div class="card mt-4 ">
+    <div class="card-header">
+        Output Data
+    </div>
+    <div class="card-body ">
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nama Barang</th>
+                        <th scope="col">Jumlah Barang</th>
+                        <th scope="col">Harga Barang</th>
+                        <th scope="col">update | Delet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for outpunya in outputnya%}
+                    <tr>
+                        <th scope="row">{{outpunya.id}}</th>
+                        <td>{{outpunya.nama_barang}}</td>
+                        <td>{{outpunya.jumlah_barang}}</td>
+                        <td> {{outpunya.harga_barang}}</td>
+                        <td>
+                            <a href="/update/{{outpunya.id}}" type="button" class="btn badge bg-primary">update</a>
+                            <a href="/delete/{{outpunya.id}}" type="button" class="btn badge bg-danger">delete</a>
+
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "Base.html" %}
+{% block judul %}
+Update data
+{% endblock %}
+
+{% block konten %}
+
+<div class="card mt-4 ">
+    <div class="card-header">
+        <B>UPDATE DATA BARANG</B>
+    </div>
+    <div class="card-body">
+        <div class="container">
+            <div class="row">
+
+                <!-- input data -->
+
+                <form action="/update/{{updatedata.id}}" method="POST">
+
+                    <div class=" mb-1">
+                        <label for="Namabarang" class="form-label "><B>Nama Barang</B></label>
+                        <input type="text" class="form-control" value="{{updatedata.nama_barang}}" name="namabarang">
+
+                    </div>
+                    <div class="mb-1">
+                        <label for="Jumlahbarang" class="form-label"><B>Jumlah Barang</B></label>
+                        <input type="text" class="form-control" value="{{updatedata.jumlah_barang}}"
+                            name="jumlahbarang">
+                    </div>
+                    <div class="mb-1">
+                        <label for="Hargabarang" class="form-label"><B>Harga Barang</B></label>
+                        <input type="text" class="form-control" value="{{updatedata.harga_barang}}" name="hargabarang">
+                    </div>
+                    <input class="btn btn-primary mt-3" type="submit" value="Submit">
+                </form>
+
+
+                <!-- show data -->
+                <!-- <div class="card"> -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
